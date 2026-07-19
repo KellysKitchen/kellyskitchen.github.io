@@ -1,0 +1,15 @@
+# OS
+.DS_Store
+desktop.ini
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Firebase (no longer used)
+.firebase/
+.firebaserc
+firebase.json
+storage.rules
+cors.json
