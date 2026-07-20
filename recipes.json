@@ -1,6 +1,7 @@
 [
   {
     "id": "banana-bread-001",
+    "classic": true,
     "name": "Banana Bread",
     "tag": "bread",
     "emoji": "🍳",
@@ -41,6 +42,7 @@
   },
   {
     "id": "char-siu-bao-001",
+    "pairs": ["char-siu-pork-001"],
     "name": "Steamed BBQ Pork Buns (Char Siu Bao)",
     "tag": "savory",
     "emoji": "🍳",
@@ -83,6 +85,8 @@
   },
   {
     "id": "char-siu-pork-001",
+    "featured": true,
+    "pairs": ["char-siu-bao-001"],
     "name": "Char Siu (Chinese BBQ Pork)",
     "tag": "savory",
     "emoji": "🍖",
@@ -125,6 +129,7 @@
   },
   {
     "id": "import-choc-cake-01",
+    "classic": true,
     "name": "Chocolate Cake",
     "tag": "sweet",
     "emoji": "🍫",
@@ -171,6 +176,8 @@
   },
   {
     "id": "mn29xmy11hc7",
+    "featured": true,
+    "pairs": ["habanero-mango-salsa-001", "adobo-crema-001", "flour-tortillas-001"],
     "name": "Scallion Pancake Tacos",
     "tag": "savory",
     "emoji": "🥘",
@@ -196,6 +203,7 @@
   },
   {
     "id": "empanada-dough-001",
+    "pairs": ["freedom-pockets-001"],
     "name": "Empanada Dough (Fried)",
     "tag": "savory",
     "emoji": "🫔",
@@ -234,6 +242,7 @@
   },
   {
     "id": "mn29ttlaun33",
+    "classic": true,
     "name": "Roast Beef and Rice Balls",
     "tag": "savory",
     "emoji": "🥘",
@@ -361,6 +370,7 @@
   },
   {
     "id": "flour-tortillas-001",
+    "pairs": ["habanero-mango-salsa-001", "adobo-crema-001"],
     "name": "Flour Tortillas",
     "tag": "bread",
     "emoji": "🫓",
@@ -391,6 +401,7 @@
   },
   {
     "id": "habanero-mango-salsa-001",
+    "pairs": ["flour-tortillas-001", "adobo-crema-001"],
     "name": "Habanero Mango Salsa",
     "tag": "sauce",
     "emoji": "🌶️",
@@ -426,6 +437,7 @@
   },
   {
     "id": "adobo-crema-001",
+    "pairs": ["habanero-mango-salsa-001", "flour-tortillas-001"],
     "name": "Adobo Crema (Chipotle Crema)",
     "tag": "sauce",
     "emoji": "🫙",
@@ -457,6 +469,8 @@
   },
   {
     "id": "freedom-pockets-001",
+    "featured": true,
+    "pairs": ["cinnamon-ice-cream-001", "empanada-dough-001"],
     "name": "Freedom Pockets",
     "tag": "sweet",
     "emoji": "🍎",
@@ -490,6 +504,7 @@
   },
   {
     "id": "marinara-001",
+    "pairs": ["italian-meatballs-001"],
     "name": "Marinara Sauce",
     "tag": "sauce",
     "emoji": "🍅",
@@ -523,6 +538,8 @@
   },
   {
     "id": "italian-meatballs-001",
+    "classic": true,
+    "pairs": ["marinara-001"],
     "name": "Meatballs",
     "tag": "savory",
     "emoji": "🍖",
@@ -556,6 +573,8 @@
   },
   {
     "id": "cinnamon-ice-cream-001",
+    "featured": true,
+    "pairs": ["freedom-pockets-001"],
     "name": "Cinnamon Ice Cream",
     "tag": "sweet",
     "emoji": "🍦",
