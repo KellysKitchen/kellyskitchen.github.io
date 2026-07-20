@@ -250,8 +250,6 @@ const GITHUB_IMAGES_BASE = 'https://raw.githubusercontent.com/EthanRobertKelly/K
     <button id="btnExport" class="btn btn-ghost" onclick="openExport()" style="display:none">↓ Export</button>
     <button id="btnSaveJson" class="btn btn-ghost" onclick="saveJsonFile()" style="display:none;font-size:12px" title="Download recipes.json to commit and push">↓ Save to File</button>
     <button id="btnAddRecipe" class="btn btn-primary" onclick="openAdd()" style="display:none">+ Add Recipe</button>
-    <button id="btnSuggest" class="btn btn-ghost" onclick="openSuggest()" style="display:none">✦ Suggest a Recipe</button>
-    <button class="btn btn-ghost" style="font-size:12px;padding:0.35rem 0.7rem" onclick="openOwnerModal()">Login</button>
   </div>
 </header>
 
@@ -603,7 +601,17 @@ function renderGrid() {
     if (activeTag!=='all' && r.tag!==activeTag) return false;
     if (activeDiff!=='all' && r.difficulty!==activeDiff) return false;
     if (!matchTtc(r)) return false;
-    if (q && !r.name.toLowerCase().includes(q) && !(r.notes||'').toLowerCase().includes(q)) return false;
+    if (q) {
+      const words = q.split(/\s+/).filter(Boolean);
+      const hay = [
+        r.name,
+        r.tag||'',
+        r.notes||'',
+        (r.ingredients||[]).map(i=>i.name).join(' '),
+        (r.steps||[]).join(' ')
+      ].join(' ').toLowerCase();
+      if (!words.every(w => hay.includes(w))) return false;
+    }
     return true;
   });
 
@@ -624,7 +632,6 @@ function renderGrid() {
         ${r.photo
           ? `<img src="${r.photo}" alt="${r.name}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">`
           : `<div class="card-thumb-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Photo coming soon</span></div>`}
-        <button class="fav-btn ${r.favorite?'starred':''}" onclick="toggleFav('${r.id}',event)" title="${r.favorite?'Remove favorite':'Add to favorites'}">${r.favorite?'★':'☆'}</button>
       </div>
       <div class="card-body">
         <div class="card-title">${r.name}</div>
@@ -924,8 +931,7 @@ function openDetail(id) {
     ${r.notes?`<div class="detail-section"><div class="detail-section-title">Chef's Notes</div><div class="notes-box">${r.notes}</div></div>`:''}
 
     <div class="detail-actions">
-      <button id="detailFavBtn" class="detail-fav-btn ${r.favorite?'starred':''}" onclick="toggleFav('${r.id}')">${r.favorite?'★ Unfavorite':'☆ Favorite'}</button>
-      ${isOwner() ? `<button class="btn btn-outline" onclick="closeDetail();openAdd('${r.id}')">✏ Edit</button>` : ''}
+${isOwner() ? `<button class="btn btn-outline" onclick="closeDetail();openAdd('${r.id}')">✏ Edit</button>` : ''}
       <button class="btn btn-outline" onclick="exportSingle('${r.id}')" style="font-size:12px">↓ Export</button>
       ${isOwner() ? `<button class="btn btn-danger" onclick="deleteRecipe('${r.id}')">Delete</button>` : ''}
     </div>
