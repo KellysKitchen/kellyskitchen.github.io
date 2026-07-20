@@ -457,7 +457,7 @@
   },
   {
     "id": "freedom-pockets-001",
-    "name": "Apple Pie Empanadas (Freedom Pockets 🇺🇸)",
+    "name": "Freedom Pockets",
     "tag": "sweet",
     "emoji": "🍎",
     "photo": "./images/freedomPockets.png",
@@ -523,7 +523,7 @@
   },
   {
     "id": "italian-meatballs-001",
-    "name": "Italian Meatballs",
+    "name": "Meatballs",
     "tag": "savory",
     "emoji": "🍖",
     "photo": "./images/meatballs.png",
