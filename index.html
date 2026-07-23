@@ -1290,7 +1290,7 @@ function applyOwnerMode() {
   document.getElementById('btnExport').style.display = owner ? '' : 'none';
   document.getElementById('btnSaveJson').style.display = owner ? '' : 'none';
   document.getElementById('btnAddRecipe').style.display = owner ? '' : 'none';
-  document.getElementById('btnSuggest').style.display = owner ? 'none' : '';
+  const btnSuggest = document.getElementById('btnSuggest'); if (btnSuggest) btnSuggest.style.display = owner ? 'none' : '';
   document.getElementById('ownerIndicator').style.display = owner ? '' : 'none';
   document.getElementById('ownerLogoutBtn').style.display = owner ? '' : 'none';
   document.getElementById('suggestionsPanel').style.display = owner ? '' : 'none';
